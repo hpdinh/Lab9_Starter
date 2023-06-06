@@ -102,6 +102,125 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    const consoleLogButton = errorBtns[0];
+    const consoleErrorButton = errorBtns[1];
+    const consoleCountButton = errorBtns[2];
+    const consoleWarnButton = errorBtns[3];
+    const consoleAssertButton = errorBtns[4];
+    const consoleClearButton = errorBtns[5];
+    const consoleDirButton = errorBtns[6];
+    const consoleDirxmlButton = errorBtns[7];
+    const consoleGroupStartButton = errorBtns[8];
+    const consoleGroupEndButton = errorBtns[9];
+    const consoleTableButton = errorBtns[10];
+    const startTimerButton = errorBtns[11];
+    const endTimerButton = errorBtns[12];
+    const consoleTraceButton = errorBtns[13];
+    const triggerGlobalErrorButton = errorBtns[14];
+
+    consoleLogButton.addEventListener('click', () => {
+      console.log('Console Log Demo');
+    });
+
+    // Console Error Button
+    consoleErrorButton.addEventListener('click', () => {
+      console.error('Console Error Demo');
+    });
+
+    // Console Count Button
+    consoleCountButton.addEventListener('click', () => {
+      console.count('Count Button');
+    });
+
+    // Console Warn Button
+    consoleWarnButton.addEventListener('click', () => {
+      console.warn('Console Warn Button');
+    }); 
+
+    // Console Assert Button
+    consoleAssertButton.addEventListener('click', () => {
+      number = 2
+      errorMsg = 'The number does not equal 3';
+      console.assert(number == 3, {number, errorMsg});
+    });
+
+    // Console Clear Button
+    consoleClearButton.addEventListener('click', () => {
+      console.clear();
+    });
+
+    // Console Dir Button
+    consoleDirButton.addEventListener('click', () => {
+      console.dir(consoleDirButton);
+    });
+
+    // Console Dirxml Button
+    consoleDirxmlButton.addEventListener('click', () => {
+      console.dirxml(consoleDirxmlButton);
+    });
+
+    // Console Group Start Button
+    consoleGroupStartButton.addEventListener('click', () => {
+      console.group('Group 1');
+      console.info('First element');
+      console.info('Second element');
+      console.info('Third element');
+    });
+
+    // Console Group End Button
+    consoleGroupEndButton.addEventListener('click', () => {
+      console.groupEnd('Group 1');
+    });
+
+       // Console Table Button
+       consoleTableButton.addEventListener('click', () => {
+      var employeeList = [
+        {
+          name: 'Software Engineer',
+          num: 110
+        }, 
+        {
+          name: 'Programming Language',
+          num: 130
+        },
+        {
+          name: 'Advanced Software',
+          num: 112
+        }
+      ];
+
+      console.table(employeeList);
+    });
+
+    // Start Timer Button
+    startTimerButton.addEventListener('click', () => {
+      console.log('Timer Set!');
+      console.time('Take');
+    });
+
+    // End Timer Button
+    endTimerButton.addEventListener('click', () => {
+      console.timeEnd('Take');
+    });
+
+    // Console Trace Button
+    consoleTraceButton.addEventListener('click', () => {
+      const deep = () => { deeper(); };
+      const deeper = () => { deepest(); };
+      const deepest = () => { console.trace(); };
+      deep();
+    });
+
+    // Trigger Global Error Button
+    triggerGlobalErrorButton.addEventListener("click", (event) => {
+        throw new Error("boom is not defined");
+    });
+
+    window.onerror = (message, url, line, col, error) => {
+        console.log("Sadly an error happened my friend");
+    }
+
+
   </script>
 </body>
 
