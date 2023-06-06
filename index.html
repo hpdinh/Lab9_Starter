@@ -87,6 +87,15 @@
     </section>
   </main>
 
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+  window.TrackJS && TrackJS.install({ 
+    token: "0a6597e7659c41e188aef60b402a433d"
+    // for more configuration options, see https://docs.trackjs.com
+  });
+</script>
+                        
+
   <script>
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
@@ -99,6 +108,7 @@
     });
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
+
 
     // Start your code here
     // You may move this JS to another file if you wish
@@ -220,7 +230,37 @@
         console.log("Sadly an error happened my friend");
     }
 
+    class numberError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "Wrong type. One the values is not a number";
+      }
+    }
 
+
+    
+    // Try and Catch
+    function typeCheckFunction(number) {
+        console.log("stingyFunction");
+        try {
+            if (typeof number == "number")
+            {
+                console.log(number + " is a number.");
+            }
+            else
+            {
+                throw new numberError(number);
+            }
+        }
+        catch (error)
+        {
+            console.error(`${error}`);
+        }
+    }
+
+    typeCheckFunction('a');
+
+    TrackJS.track('Testing TrackJS!');
   </script>
 </body>
 
